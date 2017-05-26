@@ -52,7 +52,7 @@ public class ReservationControllerTest {
         mockRoomReservation.setRoomName("JUnit Room");
         mockReservationsList.add(mockRoomReservation);
 
-        given(reservationService.getRoomReservationsForDate(date)).willReturn(mockReservationsList);
+        given(reservationService.getRoomReservationsForDate("1970-01-01")).willReturn(mockReservationsList);
         this.mockMvc.perform(get("/reservations?date=2017-01-01")).andExpect(status().isOk()).andExpect(content().string(containsString("Test, JUnit")));
     }
 
